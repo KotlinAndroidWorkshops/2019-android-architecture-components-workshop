@@ -6,10 +6,7 @@ import fr.ekito.myweatherapp.util.rx.ApplicationSchedulerProvider
 import fr.ekito.myweatherapp.util.rx.SchedulerProvider
 import fr.ekito.myweatherapp.view.detail.DetailViewModel
 import fr.ekito.myweatherapp.view.splash.SplashViewModel
-import fr.ekito.myweatherapp.view.weather.WeatherHeaderContract
-import fr.ekito.myweatherapp.view.weather.WeatherHeaderPresenter
-import fr.ekito.myweatherapp.view.weather.WeatherListContract
-import fr.ekito.myweatherapp.view.weather.WeatherListPresenter
+import fr.ekito.myweatherapp.view.weather.*
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -20,11 +17,8 @@ val weatherAppModule = module {
     // ViewModel for Search View
     viewModel { SplashViewModel(get(), get()) }
 
-    // Presenter for ResultHeader View
-    factory<WeatherHeaderContract.Presenter> { WeatherHeaderPresenter(get(), get()) }
-
-    // Presenter for ResultList View
-    factory<WeatherListContract.Presenter> { WeatherListPresenter(get(), get()) }
+    // ViewModel for Weather view
+    viewModel { WeatherViewModel(get(),get()) }
 
     // ViewModel for Detail View
     viewModel { DetailViewModel(get(), get()) }
