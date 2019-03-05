@@ -5,8 +5,7 @@ import fr.ekito.myweatherapp.domain.repository.DailyForecastRepositoryImpl
 import fr.ekito.myweatherapp.util.rx.ApplicationSchedulerProvider
 import fr.ekito.myweatherapp.util.rx.SchedulerProvider
 import fr.ekito.myweatherapp.view.detail.DetailViewModel
-import fr.ekito.myweatherapp.view.splash.SplashContract
-import fr.ekito.myweatherapp.view.splash.SplashPresenter
+import fr.ekito.myweatherapp.view.splash.SplashViewModel
 import fr.ekito.myweatherapp.view.weather.WeatherHeaderContract
 import fr.ekito.myweatherapp.view.weather.WeatherHeaderPresenter
 import fr.ekito.myweatherapp.view.weather.WeatherListContract
@@ -18,8 +17,8 @@ import org.koin.dsl.module
  * App Components
  */
 val weatherAppModule = module {
-    // Presenter for Search View
-    factory<SplashContract.Presenter> { SplashPresenter(get(), get()) }
+    // ViewModel for Search View
+    viewModel { SplashViewModel(get(), get()) }
 
     // Presenter for ResultHeader View
     factory<WeatherHeaderContract.Presenter> { WeatherHeaderPresenter(get(), get()) }
